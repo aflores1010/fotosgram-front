@@ -1,5 +1,11 @@
 {
   "name": "fotosgram-front",
   "integrations": {},
-  "type": "angular"
+  "type": "angular",
+  "proxies": [
+    {
+      "path": "/post",
+      "proxyUrl": "http://localhost:3000/"
+    }
+  ]
 }
