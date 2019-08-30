@@ -16,5 +16,10 @@
   <app-posts [posts]="posts"></app-posts>
 
   <!-- Infinite Scroll -->
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadNext($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 
 </ion-content>

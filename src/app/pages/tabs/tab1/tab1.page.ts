@@ -14,11 +14,24 @@ export class Tab1Page {
   constructor(private postsService: PostsService) {}
 
   ionViewWillEnter() {
+    this.loadNext();
+
+  }
+
+
+
+  loadNext(event?) {
     this.postsService.getPosts().subscribe(res => {
       console.log(res.posts);
       this.posts.push(...res.posts);
-    });
 
+      if(event) {
+        event.target.complete();
+
+        if(res.posts.length === 0)
+        event.target.disabled = true
+      }
+    });
   }
 
 }

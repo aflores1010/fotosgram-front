@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { PostsResponse } from '../interfaces/posts.interface';
 
 const URL = environment.url;
 

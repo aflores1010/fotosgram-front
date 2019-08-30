@@ -10,6 +10,7 @@ export class PostComponent implements OnInit {
 
   @Input() post: PostInterface[] = [];
 
+  img1 = '/assets/perro-1.jpg'
 
   constructor() { }
 
