@@ -1,6 +1,8 @@
 {
   "name": "fotosgram-front",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "proxies": [
     {

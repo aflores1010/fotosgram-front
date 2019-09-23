@@ -10,6 +10,7 @@ import { PostInterface } from 'src/app/interfaces/posts.interface';
 export class Tab1Page {
   
   public posts: PostInterface[] = [];
+  public infiniteDisabled: boolean = false;
 
   constructor(private postsService: PostsService) {}
 
@@ -18,18 +19,26 @@ export class Tab1Page {
 
   }
 
+  reload(event) {
+    console.log('reloading');
+    this.posts = [];
+    this.infiniteDisabled = false;
+    this.loadNext(event, true);
+  }
 
+  loadNext(event?, pull: boolean = false) {
 
-  loadNext(event?) {
-    this.postsService.getPosts().subscribe(res => {
+    this.postsService.getPosts(pull).subscribe(res => {
       console.log(res.posts);
+      
+
       this.posts.push(...res.posts);
 
       if(event) {
         event.target.complete();
 
         if(res.posts.length === 0)
-        event.target.disabled = true
+        this.infiniteDisabled = true;
       }
     });
   }
